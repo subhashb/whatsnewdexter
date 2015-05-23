@@ -3,14 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -24,11 +20,49 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'puma'
+
 gem 'pg'
+
 gem 'bootstrap-sass', '~> 3.3.4.1'
+
+gem 'devise', '~> 3.4.1'
+
+gem 'pry'
+
+gem 'twitter'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
+
+gem 'clockwork'
+
+gem 'sinatra', :require => nil
+gem 'sidekiq'
+
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
+gem 'awesome_print'
+
+gem 'alchemy-api-rb', :require => 'alchemy_api'
+
+gem 'temboo', '<= 2.10.0'
+
+gem 'google-search'
+
+gem 'progress_bar'
+
+gem 'httparty'
+
+gem 'google-api-client'
+gem 'trollop'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Use Unicorn as the app server
+# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
