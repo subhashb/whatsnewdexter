@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     snippet_ids = UserSnippet.where("user_authentication_id in (?)", auth_ids).collect(&:id)
     keyword_ids = UserKeyword.where("user_snippet_id in (?)", snippet_ids).collect(&:id)
 
-    ["twitter", "google_news", "wiki", "youtube", "good_reads", "google_books"].each do |provider|
+    ["twitter", "google_news", "wiki", "youtube", "goodreads", "google_books"].each do |provider|
       keyword_hits_all = UserKeywordHit.where("user_keyword_id in (?) and provider=?", keyword_ids, provider).order('created_at DESC').take(500)
       keyword_hits.push UserKeywordHit.where("id in (?)", keyword_hits_all.collect(&:id)).order('score DESC').take(2)
     end

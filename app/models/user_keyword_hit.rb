@@ -24,7 +24,7 @@ class UserKeywordHit < ActiveRecord::Base
   end
 
   def self.create_with_image_uri(params)
-    params[:image_uri] = LinkThumbnailer.generate(params[:uri]).images.first.src.to_s rescue '/images/default_uri.png'
+    params[:image_uri] = LinkThumbnailer.generate(params[:uri]).images.first.src.to_s rescue "/images/#{params[:provider]}_big.png"
     UserKeywordHit.create(params)
   end
 end
