@@ -37,8 +37,8 @@ class User < ActiveRecord::Base
     keyword_ids = UserKeyword.where("user_snippet_id in (?)", snippet_ids).collect(&:id)
 
     ["twitter", "google_news", "wiki", "youtube", "goodreads", "google_books"].each do |provider|
-      keyword_hits_all = UserKeywordHit.where("user_keyword_id in (?) and provider=? and image_width is not null and image_width > 50", keyword_ids, provider).order('created_at DESC').take(500)
-      keyword_hits.push UserKeywordHit.where("id in (?)", keyword_hits_all.collect(&:id)).order('score DESC').take(2)
+      keyword_hits_all = UserKeywordHit.where("user_keyword_id in (?) and provider=? and ((image_width is not null and image_width > 90) or (provider in ('google_books', 'goodreads')))", keyword_ids, provider).order('created_at DESC').take(500)
+      keyword_hits.push UserKeywordHit.where("id in (?)", keyword_hits_all.collect(&:id)).order('score DESC').take(3)
     end
 
     keyword_hits.flatten.shuffle

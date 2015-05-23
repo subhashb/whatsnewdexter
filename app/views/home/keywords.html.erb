@@ -12,7 +12,8 @@
        <div class="item">
          <a href="<%=hit.uri%>">
            <div class="thumbnail well">
-             <img src="<%=hit.image_uri%>">
+             <div style="float:right"><img src="/images/<%= hit.provider %>.png"></div>
+             <img style="max-width:175px" src="<%=hit.image_uri%>">
              <span class="hidden"><%= hit.id %></span>
              <div class="caption">
                <p><%= hit.content.present? ? truncate(strip_tags(CGI.unescapeHTML(hit.content)), length: 100) : "" %></p>
