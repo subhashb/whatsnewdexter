@@ -22,12 +22,13 @@ LinkThumbnailer.configure do |config|
 
   # List of blacklisted urls you want to skip when searching for images.
   #
-  # config.blacklist_urls = [
-  #   %r{^http://ad\.doubleclick\.net/},
-  #   %r{^http://b\.scorecardresearch\.com/},
-  #   %r{^http://pixel\.quantserve\.com/},
-  #   %r{^http://s7\.addthis\.com/}
-  # ]
+   config.blacklist_urls = [
+     %r{^http://ad\.doubleclick\.net/},
+     %r{^http://b\.scorecardresearch\.com/},
+     %r{^http://pixel\.quantserve\.com/},
+     %r{^http://s7\.addthis\.com/},
+     %r{^https://googleads*}
+   ]
 
   # List of attributes you want LinkThumbnailer to fetch on a website.
   #
@@ -67,5 +68,5 @@ LinkThumbnailer.configure do |config|
   # Setting this value to false will increase performance since for each images, LinkThumbnailer
   # does not have to fetch its size and type.
   #
-  config.image_stats = false
+  # config.image_stats = true
 end

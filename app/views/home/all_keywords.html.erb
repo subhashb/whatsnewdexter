@@ -1,6 +1,6 @@
-<% if @keywords.present? %>
+<% if @hits.present? %>
 	<div class="all_visuals">
-		<div><%= "#{@keywords.length} Total Bubbles" %></div>
+		<div><%= "#{@hits.length} Total Bubbles" %></div>
 		<svg id="bubbleChart" style="width: 2000px; height: 2000px;"/>
 		<span>
 			<script type="text/javascript">
