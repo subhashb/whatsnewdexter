@@ -1,29 +1,30 @@
 <% if @keywords.present? %>
-	<div class="keywords">
-		<div class="panel panel-default">
-		  <!-- Default panel contents -->
-		  <div class="panel-heading text-center" style="font-size:20px">Here's WhatsNew!!</div>
-			<table class="table-striped table-hover table-condensed">
-				<tbody>
-					<% @keywords.each do |keyword| %>
-						<tr>
-							<td><span style="width: 39px;"><img src="/images/<%=keyword.provider%>.png"/></span></td>
-							<td><%= truncate(strip_tags(CGI.unescapeHTML(keyword.content)), length: 250) %></td>
-							<td><a style="font-size: medium;" target="_blank" href="<%=keyword.uri%>"><img src="/images/arrow.png"/></a></td>
-						</tr>
-					<% end %>
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<div class="visuals">
-		<svg id="bubbleChart" style="width: 1000px; height: 500px;"/>
-		<span>
-			<script type="text/javascript">
-				paintBubbleChart(<%=@visuals.to_json.html_safe%>);
-			</script>
-		</span>
-	</div>
+    <div class="row row-offcanvas row-offcanvas-right">
+       <div>
+<!--
+         <div class="jumbotron">
+           <h1>Hello, world!</h1>
+           <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+         </div>
+-->
+
+         <div class="row">
+           <% @keywords.each do |keyword| %>
+           <div class="col-xs-5 col-lg-3">
+             <a href="<%=keyword.uri%>">
+               <div class="thumbnail">
+                 <img src="<%=keyword.image_uri%>">
+                 <div class="caption">
+                   <p><%= truncate(strip_tags(CGI.unescapeHTML(keyword.content)), length: 100) %></p>
+                 </div>
+               </div>
+             </a>
+           </div><!--/.col-xs-6.col-lg-4-->
+           <% end %>
+         </div><!--/row-->
+       </div><!--/.col-xs-12.col-sm-9-->
+
+     </div><!--/row-->
 <% else %>
 	<img style="padding-left:500px;" src="/images/processing.gif"/>
 	<span>Processing...</span>

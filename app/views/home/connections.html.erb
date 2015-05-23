@@ -10,11 +10,11 @@
 	            <%= link_to "Reconnect", user_omniauth_authorize_path(provider.name.to_sym), class: "btn btn-primary"%>
 	            <%= link_to "Disconnect", user_omniauth_authorize_path(provider.name.to_sym), class: "btn btn-danger"%>
 	          <%else%>
-							<% if provider.enabled%>
-	            	<%= link_to "Connect", user_omniauth_authorize_path(provider.name.to_sym), class: "btn btn-primary"%>
-							<% else %>
-								<img src="/images/coming_soon.png"/>
-							<% end %>
+				<% if provider.enabled%>
+	              <%= link_to "Connect", user_omniauth_authorize_path(provider.name.to_sym), class: "btn btn-primary"%>
+		        <% else %>
+				  <img src="/images/coming_soon.png"/>
+				<% end %>
 	          <%end%>
 	        </td>
 	      </tr>

@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+AuthenticationProvider.create(name: 'facebook', enabled: false)
+AuthenticationProvider.create(name: 'twitter', enabled: true)
+AuthenticationProvider.create(name: 'google_oauth2', enabled: false)

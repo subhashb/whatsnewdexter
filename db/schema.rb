@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510025133) do
+ActiveRecord::Schema.define(version: 20150523053055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150510025133) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.float    "score"
+    t.string   "image_uri"
   end
 
   add_index "user_keyword_hits", ["user_keyword_id"], name: "index_user_keyword_hits_on_user_keyword_id", using: :btree

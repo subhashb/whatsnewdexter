@@ -29,7 +29,12 @@ class YoutubeQueryWorker
         search_response.data.items.each_with_index do |search_result, index|
           case search_result.id.kind
           when 'youtube#video'
-            user_keyword.user_keyword_hits.create(provider: 'youtube', uri: "https://www.youtube.com/watch?v=#{search_result.id.videoId}", content: search_result.snippet.title, score: (((len-index).to_f/len.to_f) * user_keyword.relevance * 0.9))
+            UserKeywordHit.create_with_image_uri(
+              user_keyword_id: user_keyword.id,
+              provider: 'youtube',
+              uri: "https://www.youtube.com/watch?v=#{search_result.id.videoId}",
+              content: search_result.snippet.title,
+              score: (((len-index).to_f/len.to_f) * user_keyword.relevance * 0.9))
           end
         end        
       rescue Exception => e

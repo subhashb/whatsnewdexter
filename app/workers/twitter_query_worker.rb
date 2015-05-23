@@ -27,7 +27,12 @@ class TwitterQueryWorker
     
         if tweetsData.present?
           tweetsData.each_with_index do |data, index|
-            user_keyword.user_keyword_hits.create(provider: 'twitter', uri: "https://twitter.com/statuses/#{data['id_str']}", content: data['text'], score: (((tweetsData.length-index).to_f/tweetsData.length.to_f) * user_keyword.relevance))
+            UserKeywordHit.create_with_image_uri(
+              user_keyword_id: user_keyword.id,
+              provider: 'twitter',
+              uri: "https://twitter.com/statuses/#{data['id_str']}",
+              content: data['text'],
+              score: (((tweetsData.length-index).to_f/tweetsData.length.to_f) * user_keyword.relevance))
           end
         end
       rescue Exception => e

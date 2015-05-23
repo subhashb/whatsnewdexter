@@ -28,6 +28,8 @@ gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'devise', '~> 3.4.1'
 
 gem 'pry'
+gem 'pry-byebug'
+gem 'pry-stack_explorer'
 
 gem 'twitter'
 gem 'omniauth'
@@ -57,6 +59,8 @@ gem 'httparty'
 
 gem 'google-api-client'
 gem 'trollop'
+
+gem 'link_thumbnailer'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

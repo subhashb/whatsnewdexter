@@ -22,4 +22,9 @@ class UserKeywordHit < ActiveRecord::Base
     
     ap search.results.collect { |r| r.content }
   end
+
+  def self.create_with_image_uri(params)
+    params[:image_uri] = LinkThumbnailer.generate(params[:uri]).images.first.src.to_s rescue '/images/default_uri.png'
+    UserKeywordHit.create(params)
+  end
 end

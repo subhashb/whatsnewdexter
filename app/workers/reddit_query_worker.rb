@@ -12,7 +12,12 @@ class RedditQueryWorker
         len = results.parsed_response['data']['children'].length
       
         results.parsed_response['data']['children'].each_with_index do |result, index|
-          user_keyword.user_keyword_hits.create(provider: 'reddit', uri: result['data']['url'], content: result['data']['selftext_html'], score: (((len-index).to_f/len.to_f) * user_keyword.relevance * 0.85))
+          UserKeywordHit.create_with_image_uri(
+            user_keyword_id: user_keyword.id,
+            provider: 'reddit',
+            uri: result['data']['url'],
+            content: result['data']['selftext_html'],
+            score: (((len-index).to_f/len.to_f) * user_keyword.relevance * 0.85))
         end
       rescue Exception => e
         ::Sidekiq.logger.info "EXCEPTION encountered: #{e.message} - #{e.backtrace}"
