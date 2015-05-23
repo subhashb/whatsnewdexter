@@ -18,6 +18,8 @@ class AlchemyWorker
             WikiQueryWorker.perform_async(keyword.id)
             YoutubeQueryWorker.perform_async(keyword.id)
             #RedditQueryWorker.perform_async(keyword.id)
+            GoogleBooksQueryWorker.perform_async(keyword.id)
+            GoodreadsQueryWorker.perform_async(keyword.id)
           end
         end
       end

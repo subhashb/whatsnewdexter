@@ -61,6 +61,7 @@ gem 'google-api-client'
 gem 'trollop'
 
 gem 'link_thumbnailer'
+gem 'goodreads'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
